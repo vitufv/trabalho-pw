@@ -1,0 +1,17 @@
+Como foi feita a integração com a API do ViaCep?
+r: Foi utilizada a função fetch para realizar uma requisição à API pública do ViaCep, utilizando o CEP informado pelo usuário. A resposta, no formato JSON, retorna os dados de endereço, que são então armazenados no estado do aplicativo e exibidos na interface automaticamente.
+
+Como a imagem aleatória foi gerada?
+r:Foi utilizada a API do Unsplash com uma URL que permite buscar imagens aleatórias baseadas em palavras-chave. O primeiro nome do voluntário foi passado como parâmetro para tentar exibir uma imagem temática correspondente. Em caso de erro no carregamento da imagem, uma imagem padrão é exibida como fallback.
+
+Como você utilizou o LocalStorage?
+r:O LocalStorage foi utilizado para armazenar dois tipos de dados: a autenticação do usuário (um valor booleano indicando se está logado ou não) e a lista de voluntários cadastrados. Dessa forma, mesmo após recarregar a página, os dados continuam disponíveis e a sessão permanece ativa.
+
+Como você organizou os cards na tela?
+r: Os cards foram organizados dentro de um container com layout em grid, utilizando CSS. Cada card é gerado dinamicamente em JavaScript com base na lista de voluntários e apresenta informações como imagem, nome, e-mail e endereço. Caso não haja nenhum voluntário, uma mensagem amigável é exibida ao centro da tela.
+
+Como foi implementado o sistema de login e controle de acesso?
+r: Foi implementado um sistema de login simples com credenciais fixas. Ao realizar o login corretamente, é armazenado um valor no LocalStorage indicando que o usuário está autenticado. Com isso, o acesso à tela principal é liberado. Se o usuário não estiver autenticado, apenas a tela de login é exibida. Há também um botão de logout que remove a autenticação e retorna à tela inicial
+
+O que você faria diferente se fosse um projeto real?
+r: Em um projeto real, seriam feias melhorias como implementação de um sistema de autenticação mais seguro, uso de banco de dados no lugar do LocalStorage, e um layout mais completo e responsivo, sendo também acessível para diferentes dispositivos

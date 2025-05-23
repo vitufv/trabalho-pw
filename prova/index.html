@@ -1,0 +1,115 @@
+Index
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Voluntários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loginScreen" class="screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Plataforma de Voluntários</h1>
+                <p>Faça login para continuar</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <div class="input-icon">
+                        <input type="text" id="username" placeholder="Digite seu usuário">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <div class="input-icon">
+                        <input type="password" id="password" placeholder="Digite sua senha">
+                    </div>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div id="appScreen" class="screen hidden">
+        <header>
+            <div class="header-content">
+                <h1>Plataforma de Voluntários</h1>
+                <button id="logoutBtn">Sair</button>
+            </div>
+        </header>
+
+        <nav>
+            <div class="nav-content">
+                <button class="nav-link active" data-screen="volunteerList">Lista de Voluntários</button>
+                <button class="nav-link" data-screen="volunteerForm">Cadastrar Voluntário</button>
+            </div>
+        </nav>
+
+        
+        <main id="volunteerList" class="container">
+            <div class="section-header">
+                <h2>Lista de Voluntários</h2>
+                <p class="volunteer-count">0 voluntários cadastrados</p>
+            </div>
+
+            <div class="actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar por nome...">
+                </div>
+                <div class="action-buttons">
+                    <button id="refreshBtn">Atualizar</button>
+                    <button id="clearAllBtn" class="danger">Limpar Tudo</button>
+                </div>
+            </div>
+
+            <div id="volunteerGrid" class="volunteer-grid"></div>
+        </main>
+
+       
+        <main id="volunteerForm" class="container hidden">
+            <div class="section-header">
+                <h2>Cadastrar Novo Voluntário</h2>
+                <p>Preencha o formulário abaixo com os dados do voluntário</p>
+            </div>
+
+            <form id="registrationForm" class="registration-form">
+                <div class="form-group">
+                    <label for="name">Nome*</label>
+                    <input type="text" id="name" required placeholder="Digite o nome completo">
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" required placeholder="Digite o email">
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="cep">CEP*</label>
+                    <div class="cep-input">
+                        <input type="text" id="cep" required placeholder="Digite o CEP (somente números)" maxlength="8">
+                        <div class="cep-loader hidden"></div>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div id="addressInfo" class="address-info hidden">
+                    <h3>Endereço encontrado:</h3>
+                    <p id="addressText"></p>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" data-screen="volunteerList">Cancelar</button>
+                    <button type="submit">Cadastrar Voluntário</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
